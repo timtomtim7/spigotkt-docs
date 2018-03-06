@@ -56,7 +56,7 @@ The value named "test" is an Int
 
 You can access item NBT:
 ```Kotlin
-val item = ItemStack(Material.STONE)
+val item = // Some ItemStack
 val nbt = item.nbt
 nbt.int("someValue", 42)
 item.nbt = nbt
@@ -64,7 +64,7 @@ item.nbt = nbt
 
 or, more simply:
 ```Kotlin
-val item = ItemStack(Material.STONE)
+val item = // Some ItemStack
 item.editNBT {
     int("someValue", 42)
 }
