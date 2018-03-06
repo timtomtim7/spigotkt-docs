@@ -1,7 +1,7 @@
 # NBT
 
 SpigotKt adds an [NBT](https://minecraft.gamepedia.com/NBT_format) API.
-Minecraft uses NBT for a lot of things including items, tile entities, entities, player saves, and more.
+Minecraft uses NBT for a lot of things including items, [block entities](https://minecraft.gamepedia.com/Block_entity), entities, player saves, and more.
 
 ## Basics
 
@@ -74,7 +74,7 @@ Modifying the value returned by `ItemStack#nbt` does not directly edit the item'
 You have to reassign it, similar to `ItemMeta`.
 
 ## Blocks
-If the block is a tile entity, you can access it's NBT:
+If the block is a [block entity](https://minecraft.gamepedia.com/Block_entity), you can access it's NBT:
 
 ```Kotlin
 val block = //some block
@@ -85,7 +85,7 @@ if(block.hasNBT()) {
 }
 ```
 
-If you attempt to access `Block#nbt` on a block that does not have NBT, it will error.
+If you attempt to access `Block#nbt` on a block that does not have NBT, it will throw an `IllegalArgumentException`.
 You can use `Block#nbtOrNull` to access the NBT if it is present or `null`
 
 Similar to items, there is `Block#editNBT`
@@ -99,7 +99,7 @@ if(block.hasNBT()) {
 ```
 
 **Important:** Items allow you to add arbitrary NBT values to them, blocks **do not**.
-If you try to add an NBT value to a tile entity that is not used by vanilla Minecraft, it will not stay.
+If you try to add an NBT value to a block entity that is not used by vanilla Minecraft, it will not stay.
 
 ## Types
 
