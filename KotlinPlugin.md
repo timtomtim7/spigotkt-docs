@@ -17,3 +17,8 @@ The required parameters for it are just your plugin name and version.
 
 Your main class name **must** end in `Plugin` (ex. `AnExamplePlugin`, `TestPlugin`, `AutoSellPlugin`),
 and your plugin must go in the `kt-plugins` folder, **not** in the normal `plugins` folder.
+
+## Important Notes
+The traditional Bukkit way of registering listeners and commands do not currently work when using `KotlinPlugin`.
+Due to the lack of a `plugin.yml`, there is currently no way to register *normal* Bukkit commands.
+Trying to register a normal listener will result in an error.
