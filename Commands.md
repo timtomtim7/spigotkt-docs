@@ -13,7 +13,7 @@ command("test") {
 }
 ```
 
-This will technically register a command, "test", but it won't do much.
+This will technically register a command, "test", but the command won't do much.
 
 To create a simple "Hello, world!" command:
 
@@ -25,7 +25,7 @@ command("test") {
 }
 ```
 
-or
+or, more simply
 
 ```Kotlin
 command("test") {
@@ -42,9 +42,23 @@ Properties you can access include `sender`, `alias` (label), and `args` or `rawA
 
 *Note: You cannot have a command without an `onExecute` block, it will error if you try.*
 
+Outside `onExecute` (inside `command`), you can set values such as `description`, `usageMessage`, and `aliases`:
+```Kotlin
+command("test") {
+    usageMessage("/$name")
+    aliases("hello", "hey", "hi", "helloworld")
+    description("Sends \"Hello, world!\"")
+    
+    onExecute {
+        reply("Hello, world!")
+    }
+}
+```
+
 ## Subcommands
 
 A subcommand is a command within a command (ex. `/kit create`, `/kit delete` where "create" and "delete" are the subcommands)
+
 To create subcommands:
 ```Kotlin
 command("kit") {
@@ -82,6 +96,11 @@ command("why") {
         }
     }
 }
+```
+
+You can add aliases to a subcommand by adding more strings:
+```Kotlin
+subcommand("hello", "hi", "hey")
 ```
 
 ## Tab-Complete
