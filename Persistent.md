@@ -44,3 +44,10 @@ And then retrieving it:
 ```Kotlin
 val test = persistent[plugin]?.int("test") // 5 (Int?)
 ```
+
+## Plugins
+
+There is a `persistent` value available as an extension of `Plugin` that is the equivalent of 
+```Kotlin
+server.persistent.getOrCreate(plugin)
+```
